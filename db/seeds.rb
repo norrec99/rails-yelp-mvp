@@ -10,13 +10,13 @@ puts "Cleaning the database..."
 Restaurant.destroy_all
 
 
-puts "Creating 100 restaurants..."
-100.times do
+puts "Creating 5 restaurants..."
+5.times do
   restaurant = Restaurant.new(
     name: Faker::Restaurant.name,
     address: Faker::Address.street_address,
     phone_number: Faker::PhoneNumber.phone_number,
-    category: rand(1..5)
+    category: ["chinese", "italian", "japanese", "french", "belgian"].sample
   )
   restaurant.save!
   puts "#{restaurant.name} created!"
